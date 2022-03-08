@@ -1,9 +1,13 @@
 import os 
 
 def main():
-
-
     cmd = input('\n...\n').rstrip()
+
+    if cmd == 'readme':
+        with open(os.getcwd() + '/readme.txt') as f:
+            txt = f.read()
+        print(txt)
+
     if cmd == 'viewpwsh':
         a = viewpwsh()
         print(a)
@@ -31,7 +35,7 @@ def main():
     if cmd.find('showthemes') > -1:
         listThemes()
 
-    if cmd == 'quit':
+    if cmd == 'quit' or cmd == 'exit':
         quit()
 
     main()
@@ -124,6 +128,8 @@ if __name__ == "__main__":
     help += 'setall (name) - sets both themes to this\n'
     help += 'savetheme (name) - saves current settings as a "theme".json and you can lo=ad this configuration\n'
     help += 'loadtheme (name) - loads a settings file .json from the current folder\n'
+    help += 'readme\n'
+
     help += 'showthemes\n'
 
     help += 'quit\n'
